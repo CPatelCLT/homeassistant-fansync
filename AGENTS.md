@@ -128,7 +128,7 @@ ConfigEntry → __init__.py → FanSyncClient (WebSocket)
 
 Read this before changing anything an entity writes. These rules were learned from live hardware and one of them from a regression.
 
-**Registers**: `H00` power, `H01` preset (0 normal, 1 fresh air), `H02` speed (1 to 100), `H06` direction (0 forward, 1 reverse), `H0B` light power, `H0C` light brightness (1 to 100), `H04` light color temperature in Kelvin (shared by both lights), `H09` up light power and `H0A` up light brightness (1 to 100) on dual-light receivers (LD5; from Fanimation's information model, not yet probed), `H0D` the app's Home Away mode. `H05` and `H0E` are undecoded.
+**Registers**: `H00` power, `H01` preset (0 normal, 1 fresh air), `H02` speed (1 to 100), `H06` direction (0 forward, 1 reverse), `H0B` light power, `H0C` light brightness (1 to 100), `H04` light color temperature in Kelvin (shared by both lights), `H09` up light power and `H0A` up light brightness (1 to 100) on dual-light receivers (LD5). Confirmed on a TorchAire64-FD6R1LD5, fw 3.3.6 on 2026-11-17: both lights switch on and off and the up light takes brightness through Home Assistant; the register protocol itself is from Fanimation's information model and has not been run through `make probe`, `H0D` the app's Home Away mode. `H05` and `H0E` are undecoded.
 
 **Home Away (`H0D`)**, measured on the Kute60 only: turning it on stops the fan (`H0D` 1 and `H00` 0 arrive in one report), turning it off leaves the fan stopped, and a power-on write clears it. The fan reports every one of those. The switch writes `{"H0D": x}` alone and is created only for devices whose status contains the register. What the mode does to a real light is not known.
 
