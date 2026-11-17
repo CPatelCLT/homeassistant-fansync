@@ -66,6 +66,11 @@
         "name": "Luz superior"
       }
     },
+    "sensor": {
+      "error": {
+        "name": "Error"
+      }
+    },
     "switch": {
       "light_installed": {
         "name": "Luz instalada"

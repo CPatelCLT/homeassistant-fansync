@@ -66,6 +66,11 @@
         "name": "Lumière du haut"
       }
     },
+    "sensor": {
+      "error": {
+        "name": "Erreur"
+      }
+    },
     "switch": {
       "light_installed": {
         "name": "Lumière installée"
